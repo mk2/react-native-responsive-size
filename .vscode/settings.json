@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
