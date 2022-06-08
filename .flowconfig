@@ -1,5 +1,6 @@
 [ignore]
-./node_modules
+<PROJECT_ROOT>/node_modules/.*
+!<PROJECT_ROOT>/node_modules/react-native/.*
 
 [include]
 
@@ -11,3 +12,6 @@
 [options]
 
 [strict]
+
+[declarations]
+<PROJECT_ROOT>/node_modules/.*

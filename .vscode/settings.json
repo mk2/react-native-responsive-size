@@ -3,7 +3,9 @@
   "files.insertFinalNewline": true,
   "typescript.validate.enable": false,
   "javascript.validate.enable": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
   }
 }

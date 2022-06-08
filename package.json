@@ -3,6 +3,7 @@
   "packageManager": "yarn@3.2.1",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "",
     "build": "flow-remove-types sources/ -d dist/",
     "prepublish": "yarn build",
     "flow-typed-install": "yarn dlx flow-typed install --libdevDir flow-typed",
