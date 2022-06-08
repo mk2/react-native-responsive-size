@@ -9,18 +9,17 @@ const BASE_SIZE = {
   vertical: 844,
 };
 
-const cache: { [string]: number } = {};
-
-export function ResponsiveSize(
+type ResponsiveSizeFunciton = (
   size: number,
-  cacheKey?: string,
+  direction: "horizontal" | "vertical",
+  customBaseSize?: number
+) => number;
+
+export const ResponsiveSize: ResponsiveSizeFunciton = (
+  size: number,
   direction: "horizontal" | "vertical" = "horizontal",
   customBaseSize?: number
-): number {
-  if (cacheKey && cache[cacheKey]) {
-    return cache[cacheKey];
-  }
-
+) => {
   const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
   const baseSize = customBaseSize ?? BASE_SIZE[direction];
 
@@ -30,9 +29,28 @@ export function ResponsiveSize(
 
   const roundSize = Math.round(size);
   const caclulatedSize = size * (targetSize / baseSize);
-  if (cacheKey) {
-    cache[cacheKey] = caclulatedSize;
-  }
 
   return caclulatedSize;
-}
+};
+
+export const RSize = ResponsiveSize;
+
+export const ResponsiveRoundedSize: ResponsiveSizeFunciton = (
+  size: number,
+  direction: "horizontal" | "vertical" = "horizontal",
+  customBaseSize?: number
+) => {
+  return Math.round(ResponsiveSize(size, direction, customBaseSize));
+};
+
+export const RRSize = ResponsiveRoundedSize;
+
+export const ResponsiveTruncedSize: ResponsiveSizeFunciton = (
+  size: number,
+  direction: "horizontal" | "vertical" = "horizontal",
+  customBaseSize?: number
+) => {
+  return Math.trunc(ResponsiveSize(size, direction, customBaseSize));
+};
+
+export const RTSize = ResponsiveTruncedSize;
