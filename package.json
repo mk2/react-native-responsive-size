@@ -3,15 +3,18 @@
   "packageManager": "yarn@3.2.1",
   "main": "lib/index.js",
   "scripts": {
-    "build": "flow-remove-types src/ -d lib/",
-    "prepublish": "yarn run build",
-    "flow-typed-install": "yarn dlx flow-typed install",
-    "flow-typed-createstub": "yarn dlx flow-typed create-stub -o --libdefDir custom/def_folder/"
+    "build": "flow-remove-types sources/ -d dist/",
+    "prepublish": "yarn build",
+    "flow-typed-install": "yarn dlx flow-typed install --libdevDir flow-typed",
+    "flow-typed-createstub": "yarn dlx flow-typed create-stub -o --libdefDir flow-typed/custom/"
   },
   "devDependencies": {
     "flow-bin": "^0.179.0",
     "flow-remove-types": "^2.179.0",
     "react": "^18.1.0",
     "react-native": "^0.68.2"
+  },
+  "dependencies": {
+    "react-native-iphone-x-helper": "https://github.com/lekzd/react-native-iphone-x-helper.git"
   }
 }
