@@ -1,4 +1,8 @@
-// @flow
+/**
+ * React Native Simple Responsive Size
+ *
+ * @flow
+ */
 
 import { Dimensions } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
@@ -11,13 +15,13 @@ const BASE_SIZE = {
 
 type ResponsiveSizeFunciton = (
   size: number,
-  direction: "horizontal" | "vertical",
+  direction?: "horizontal" | "vertical",
   customBaseSize?: number
 ) => number;
 
 export const ResponsiveSize: ResponsiveSizeFunciton = (
   size: number,
-  direction: "horizontal" | "vertical" = "horizontal",
+  direction?: "horizontal" | "vertical" = "horizontal",
   customBaseSize?: number
 ) => {
   const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
@@ -37,7 +41,7 @@ export const RSize = ResponsiveSize;
 
 export const ResponsiveRoundedSize: ResponsiveSizeFunciton = (
   size: number,
-  direction: "horizontal" | "vertical" = "horizontal",
+  direction?: "horizontal" | "vertical",
   customBaseSize?: number
 ) => {
   return Math.round(ResponsiveSize(size, direction, customBaseSize));
@@ -47,7 +51,7 @@ export const RRSize = ResponsiveRoundedSize;
 
 export const ResponsiveTruncedSize: ResponsiveSizeFunciton = (
   size: number,
-  direction: "horizontal" | "vertical" = "horizontal",
+  direction?: "horizontal" | "vertical",
   customBaseSize?: number
 ) => {
   return Math.trunc(ResponsiveSize(size, direction, customBaseSize));

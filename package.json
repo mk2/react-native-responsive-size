@@ -1,21 +1,48 @@
 {
-  "name": "react-native-responsive-size",
+  "name": "react-native-simple-responsive-size",
+  "description": "Simple utility library for calclating sizes against each smartphone screen sizes. It helps resizing views with keeping aspect ratio.",
+  "keywords": [
+    "react-native",
+    "responsive",
+    "size"
+  ],
+  "homepage": "https://github.com/mk2/react-native-simple-responsive-size",
+  "repository": {
+    "url": "https://github.com/mk2/react-native-simple-responsive-size.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk2/react-native-simple-responsive-size/issues"
+  },
+  "license": "ISC",
+  "version": "0.0.0",
   "packageManager": "yarn@3.2.1",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "index.d.ts"
+  ],
+  "types": "index.d.ts",
   "scripts": {
-    "lint": "",
+    "lint": "flow check",
     "build": "flow-remove-types sources/ -d dist/",
     "prepublish": "yarn build",
+    "test": "jest",
     "flow-typed-install": "yarn dlx flow-typed install --libdevDir flow-typed",
     "flow-typed-createstub": "yarn dlx flow-typed create-stub -o --libdefDir flow-typed/custom/"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-flow": "^7.17.12",
+    "babel-jest": "^28.1.1",
     "flow-bin": "^0.179.0",
     "flow-remove-types": "^2.179.0",
+    "jest": "^28.1.1",
     "react": "^18.1.0",
-    "react-native": "^0.68.2"
-  },
-  "dependencies": {
+    "react-native": "^0.68.2",
     "react-native-iphone-x-helper": "https://github.com/lekzd/react-native-iphone-x-helper.git"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.63.0",
+    "react-native-iphone-x-helper": "*"
   }
 }
