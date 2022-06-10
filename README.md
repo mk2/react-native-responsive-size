@@ -2,6 +2,8 @@
 
 **Simple utility library for calclating sizes against each smartphone screen sizes. It helps resizing views with keeping aspect ratio.**
 
+This library is based on the iPhone 12/13 screen size (which can be changed) and is designed to calculate the View size according to the screen size of each device. By determining the base screen size, the aspect ratio can be made the same for all devices.
+
 ## Usage
 
 ### Add this library and peer dependencies.
@@ -33,11 +35,12 @@ const styles = StyleSheet.create({
 
 ## References
 
-| Function              | Alias  | Description                  |
-| --------------------- | ------ | ---------------------------- |
-| ResponsiveSize        | RSize  | Return raw calclated result. |
-| ResponsiveRoundedSize | RRSize | Return rounded result.       |
-| ResponsiveTruncedSize | RTSize | Return trunced result.       |
+| Function              | Alias  | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| ResponsiveSize        | RSize  | Return raw calclated result.                        |
+| ResponsiveRoundedSize | RRSize | Return rounded result.                              |
+| ResponsiveTruncedSize | RTSize | Return trunced result.                              |
+| changeBaseSize        | -      | Change base size. (Default: iPhone12/13, w390 h844) |
 
 ## Examples
 

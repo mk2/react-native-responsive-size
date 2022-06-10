@@ -13,6 +13,18 @@ const BASE_SIZE = {
   vertical: 844,
 };
 
+export const changeBaseSize = (changedSize: {
+  horizontal?: number,
+  vertical?: number,
+}) => {
+  if (changedSize.horizontal) {
+    BASE_SIZE.horizontal = changedSize.horizontal;
+  }
+  if (changedSize.vertical) {
+    BASE_SIZE.vertical = changedSize.vertical;
+  }
+};
+
 type ResponsiveSizeFunciton = (
   size: number,
   direction?: "horizontal" | "vertical",

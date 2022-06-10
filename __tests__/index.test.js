@@ -1,5 +1,6 @@
 // @flow
 import {
+  changeBaseSize,
   ResponsiveRoundedSize,
   ResponsiveSize,
   ResponsiveTruncedSize,
@@ -24,10 +25,10 @@ describe("ResponsiveSize", () => {
   it.each([
     [300, 300],
     [400, 400],
-  ])("on default screen size: %s to %s", (baseSize, targetSize) => {
-    expect(ResponsiveSize(baseSize)).toBe(targetSize);
-    expect(ResponsiveRoundedSize(baseSize)).toBe(targetSize);
-    expect(ResponsiveTruncedSize(baseSize)).toBe(targetSize);
+  ])("on default screen size: %s to %s", (size, targetSize) => {
+    expect(ResponsiveSize(size)).toBe(targetSize);
+    expect(ResponsiveRoundedSize(size)).toBe(targetSize);
+    expect(ResponsiveTruncedSize(size)).toBe(targetSize);
   });
 
   it.each([
@@ -35,11 +36,11 @@ describe("ResponsiveSize", () => {
     [400, 205, 205],
   ])(
     "on small screen size: %s to %s",
-    (baseSize, roundedTargetSize, truncedTargetSize) => {
+    (size, roundedTargetSize, truncedTargetSize) => {
       mockDimensionsGet.mockReturnValue({ width: 200, height: 844 });
-      expect(Math.round(ResponsiveSize(baseSize))).toBe(roundedTargetSize);
-      expect(ResponsiveRoundedSize(baseSize)).toBe(roundedTargetSize);
-      expect(ResponsiveTruncedSize(baseSize)).toBe(truncedTargetSize);
+      expect(Math.round(ResponsiveSize(size))).toBe(roundedTargetSize);
+      expect(ResponsiveRoundedSize(size)).toBe(roundedTargetSize);
+      expect(ResponsiveTruncedSize(size)).toBe(truncedTargetSize);
     }
   );
 
@@ -48,11 +49,22 @@ describe("ResponsiveSize", () => {
     [400, 615, 615],
   ])(
     "on big screen size: %s to %s",
-    (baseSize, roundedTargetSize, truncedTargetSize) => {
+    (size, roundedTargetSize, truncedTargetSize) => {
       mockDimensionsGet.mockReturnValue({ width: 600, height: 844 });
-      expect(Math.round(ResponsiveSize(baseSize))).toBe(roundedTargetSize);
-      expect(ResponsiveRoundedSize(baseSize)).toBe(roundedTargetSize);
-      expect(ResponsiveTruncedSize(baseSize)).toBe(truncedTargetSize);
+      expect(Math.round(ResponsiveSize(size))).toBe(roundedTargetSize);
+      expect(ResponsiveRoundedSize(size)).toBe(roundedTargetSize);
+      expect(ResponsiveTruncedSize(size)).toBe(truncedTargetSize);
     }
   );
+
+  it("changing base size effects calculation", () => {
+    const originalBaseSize = { horizontal: 390, vertical: 844 };
+    changeBaseSize({ horizontal: 780, vertical: 844 });
+    const size = 300;
+    const targetSize = 150;
+    expect(Math.round(ResponsiveSize(size))).toBe(targetSize);
+    expect(ResponsiveRoundedSize(size)).toBe(targetSize);
+    expect(ResponsiveTruncedSize(size)).toBe(targetSize);
+    changeBaseSize(originalBaseSize);
+  });
 });

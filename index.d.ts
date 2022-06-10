@@ -1,3 +1,10 @@
+declare type BaseSize = {
+  horizontal: number;
+  vertical: number;
+};
+
+export const changeBaseSize: (changeSize: Partial<BaseSize>) => void;
+
 declare type ResponsiveSizeFunciton = (
   size: number,
   direction?: "horizontal" | "vertical",
