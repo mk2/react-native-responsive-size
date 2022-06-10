@@ -47,5 +47,6 @@ This repository contains expo-based example app. For running example app, move t
 
 ### Photos
 
-| --------------------- | ------
-| ![](/docs/images/android-screenshot.png | width=100) | ![](/docs/images/ios-screenshot.png | width=100)
+| Android                                                       | iOS                                                       |
+| ------------------------------------------------------------- | --------------------------------------------------------- |
+| <img src="./docs/images/android-screenshot.png" width="128"/> | <img src="./docs/images/ios-screenshot.png" width="128"/> |
