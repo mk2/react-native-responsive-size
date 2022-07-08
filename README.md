@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
 | ResponsiveRoundedSize | RRSize | Return rounded result.                              |
 | ResponsiveTruncedSize | RTSize | Return trunced result.                              |
 | changeBaseSize        | -      | Change base size. (Default: iPhone12/13, w390 h844) |
+| baseSize              | -      | Return base size.                                   |
+| halfBaseSize          | -      | Return half-base size.                              |
 
 ## Examples
 
