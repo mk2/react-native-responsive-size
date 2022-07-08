@@ -7,8 +7,13 @@
 import { Dimensions } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
+type BaseSize = {
+  horizontal: number,
+  vertical: number,
+};
+
 // iPhone12/13 size
-const BASE_SIZE = {
+const BASE_SIZE: BaseSize = {
   horizontal: 390,
   vertical: 844,
 };
@@ -24,6 +29,12 @@ export const changeBaseSize = (changedSize: {
     BASE_SIZE.vertical = changedSize.vertical;
   }
 };
+
+export const baseSize: () => BaseSize = () => ({ ...BASE_SIZE });
+export const halfBaseSize: () => BaseSize = () => ({
+  horizontal: BASE_SIZE.horizontal / 2,
+  vertical: BASE_SIZE.vertical / 2,
+});
 
 type ResponsiveSizeFunciton = (
   size: number,

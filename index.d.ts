@@ -15,3 +15,6 @@ export const ResponsiveSize: ResponsiveSizeFunciton;
 export const RSize: ResponsiveSizeFunciton;
 export const RRSize: ResponsiveSizeFunciton;
 export const RTSize: ResponsiveSizeFunciton;
+
+export const baseSize: () => BaseSize;
+export const halfBaseSize: () => BaseSize;
